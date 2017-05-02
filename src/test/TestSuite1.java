@@ -125,15 +125,17 @@ public class TestSuite1 {
         ac.moveToElement(el);
         ac.perform();
         try{
-            Thread.sleep(2000);
+          Thread.sleep(4000);
         }
         catch (Exception ex){};
 
         ac.click(el);
         ac.build().perform();
-        //driver.findElement(By.cssSelector("body > cn-tutorial-power-layer > div > div > a > span")).click();
-        driver.findElement(By.xpath("//*[@id=\"11_WAR_cored5portlet\"]/div/div/div/cn-cookie-agreement/div/div/div/a/span")).click();
 
+        el = driver.findElement(By.xpath("//*[@id=\"11_WAR_cored5portlet\"]/div/div/div/cn-cookie-agreement/div/div/div/a/span"));
+
+        ac.moveToElement(el);
+        ac.perform();
 
     }
 
