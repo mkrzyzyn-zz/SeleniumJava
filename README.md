@@ -5,7 +5,14 @@ Prerequisites: 1. Chrome browser installed. 2. Scripts for unauthorized sources 
 
 Purpose: Automatic test of User Guide appearing after log=in.
 
-Description:
+General Test  decription
 
-This script logs in, checks presence of guide, and cookie bar.
-It also tests several control pathaways of the user guide (first two screens) and the presence of elements like buttons and values of text fields..
+Steps:
+0.	Load URL and check if  URL matches and login field is present.
+1.	Provide credentials and log-in to portal. Check if guide appears.
+2.	Check if buttons are visible and text matches on first screen.
+3.	Go to second screen using  button ‘Next’.
+4.	Check text fields on second screen and go back using arrow.
+5.	Re-enter second screen using arrow. Return.
+6.	Locate and click  ‘Exit guide’.
+7.	Close cookie popup.

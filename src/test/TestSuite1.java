@@ -47,11 +47,13 @@ public class TestSuite1 {
         Assert.assertTrue("The Password field should be available.",
                 (new WebDriverWait(driver, 5)).until( ExpectedConditions.presenceOfElementLocated(By.id("_17_WAR_cored5portlet_password"))) != null);
 
+        // Sending credentials
         driver.findElement(By.id("_17_WAR_cored5portlet_login")).sendKeys("testuservwtest@mailinator.com");
         driver.findElement(By.id("_17_WAR_cored5portlet_password")).sendKeys("Vwtest2017!");
 
         Assert.assertTrue("Login button should be available",new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(By.className("cn-primary-button"))) != null);
 
+        // Press login
         driver.findElement(By.className("cn-primary-button")).click();
 
         Assert.assertTrue("The cookie bar should be available.",
@@ -75,11 +77,14 @@ public class TestSuite1 {
 
         Assert.assertEquals("Text matches 'Dziękujemy za wybranie'", driver.findElement(By.xpath("//*[@id=\"cn\"]/body/cn-tutorial-power-layer/div/div/div/div[4]/cn-power-layer-body/div/div[2]/div[1]/div[1]/span")).getText().toString(), "Dziękujemy za wybranie Car-Net.\nUruchom samouczek już teraz i poznaj Car-Net.");
 
+        // Locating element 'start guide'
         WebElement el = driver.findElement(By.xpath("//*[@id=\"cn\"]/body/cn-tutorial-power-layer/div/div/div/div[4]/cn-power-layer-body/div/div[2]/div[1]/div[4]/button[2]"));
 
+        // Manually selecting and clicking this element
         Actions ac = new Actions(driver);
         ac.moveToElement(el);
         ac.perform();
+
         try{
             Thread.sleep(2000);
         }
@@ -88,11 +93,13 @@ public class TestSuite1 {
         ac.click(el);
         ac.build().perform();
 
+        // Waiting till animation ends and buttons become available
         try{
             Thread.sleep(4000);
         }
         catch (Exception ex){};
 
+        // Returning to welcome screen of the guide
         driver.findElement(By.className("vw-icon-arrow-left")).click();
 
         try{
@@ -100,6 +107,7 @@ public class TestSuite1 {
         }
         catch (Exception ex){};
 
+        // Going again to the next step via arrow
         driver.findElement(By.className("vw-icon-arrow-right")).click();
 
         Assert.assertEquals("Text matches 'Twój volkswagen...'",driver.findElement(By.xpath("//*[@id=\"cn\"]/body/cn-tutorial-power-layer/div/div/div/div[4]/cn-power-layer-body/div/div[2]/div[2]/div[1]/h3")).getText().toString(),"Twój Volkswagen");
@@ -113,6 +121,7 @@ public class TestSuite1 {
         }
         catch (Exception ex){};
 
+        // Returning
         driver.findElement(By.className("vw-icon-arrow-left")).click();
 
         try{
@@ -120,6 +129,7 @@ public class TestSuite1 {
         }
         catch (Exception ex){};
 
+        // Locate close guide button
         el = driver.findElement(By.xpath("//*[@id=\"cn\"]/body/cn-tutorial-power-layer/div/div/div/div[4]/cn-power-layer-body/div/div[2]/div[1]/div[4]/button[1]"));
 
         ac.moveToElement(el);
@@ -132,6 +142,7 @@ public class TestSuite1 {
         ac.click(el);
         ac.build().perform();
 
+        // Locate close cookie bar button
         el = driver.findElement(By.xpath("//*[@id=\"11_WAR_cored5portlet\"]/div/div/div/cn-cookie-agreement/div/div/div/a/span"));
 
         ac.moveToElement(el);
